@@ -1,0 +1,136 @@
+/* ==========================================================================
+Navbar
+========================================================================== */
+@import '~bootstrap/scss/bootstrap';
+$sidebarbgcolor: #2a323c;
+.navbar-version {
+    font-size: 10px;
+    color: #ccc;
+}
+
+.jh-navbar {
+    background-color: #353d47;
+    padding: 0.2em 1em;
+    .profile-image {
+        margin: -10px 0px;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+    }
+    .dropdown-item.active,
+    .dropdown-item.active:focus,
+    .dropdown-item.active:hover {
+        background-color: #353d47;
+    }
+    .dropdown-toggle::after {
+        margin-left: 0.15em;
+    }
+    ul.navbar-nav {
+        padding: 0.5em;
+        .nav-item {
+            margin-left: 1.5rem;
+        }
+    }
+    a.nav-link {
+        font-weight: 400;
+    }
+    .jh-navbar-toggler {
+        color: #ccc;
+        font-size: 1.5em;
+        padding: 10px;
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .jh-navbar-toggler {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .jh-logo-container {
+        width: 100%;
+    }
+}
+
+.navbar-title {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* ==========================================================================
+Logo styles
+========================================================================== */
+.navbar-brand {
+    &.logo {
+        padding: 5px 15px;
+        .logo-img {
+            height: 45px;
+            width: 70px;
+            display: inline-block;
+            vertical-align: middle;
+            background: url('../../../content/images/logo-jhipster.png') no-repeat center center;
+            background-size: contain;
+        }
+    }
+}
+.navbar {
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+.sidebar {
+    position: fixed;
+    top: 62px;
+    left: 0;
+    height: 100%;
+    margin-top: 0;
+    background: #444f5c;
+    width: 230px;
+    transition: 0.75s;
+    -o-transition: 0.75s;
+    -moz-transition: 0.75s;
+    -ms-transition: 0.75s;
+    -webkit-transition: 0.75s;
+}
+.sidebar ul li {
+    border-bottom: none;
+}
+.sidebar a {
+    color: rgba(255, 255, 255, 0.95);
+}
+.sidebar a:hover,
+.sidebar a:focus {
+    color: white;
+}
+//sidebar-nav距离顶上的距离
+.sidebar-nav .nav > li > a {
+    position: relative;
+    display: block;
+    padding: 15px 15px 15px 37px;
+}
+.sidebar-nav .nav > li > a .glyphicon {
+    font-size: 16px;
+}
+.sidebar-nav .nav > li > a span {
+    font-size: 16px;
+}
+.sidebar-nav .nav > li > a span:first-child {
+    width: 18px;
+    text-align: center;
+    margin-right: 10px;
+}
+.sidebar-nav .nav > li > ul > li > a {
+    background: $sidebarbgcolor;
+}
+.sidebar-nav .nav > li > ul > li > a span:first-child {
+    margin-right: 10px;
+}
+
+//修改侧边
+.sidebar-nav .nav2 > li > a.a2 {
+    display: none;
+}
