@@ -11,12 +11,13 @@ import {
     driverRoute,
     driverPopupRoute
 } from './';
+import {ScoresLevelPipe} from "app/entities/Pipe/scores-level.pipe";
 
 const ENTITY_STATES = [...driverRoute, ...driverPopupRoute];
 
 @NgModule({
     imports: [JhipsetrsSharedModule, RouterModule.forChild(ENTITY_STATES)],
-    declarations: [DriverComponent, DriverDetailComponent, DriverUpdateComponent, DriverDeleteDialogComponent, DriverDeletePopupComponent],
+    declarations: [DriverComponent, DriverDetailComponent, DriverUpdateComponent, DriverDeleteDialogComponent, DriverDeletePopupComponent,ScoresLevelPipe],
     entryComponents: [DriverComponent, DriverUpdateComponent, DriverDeleteDialogComponent, DriverDeletePopupComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -15,6 +15,9 @@
             <input type="text" nz-input placeholder="input search text" [(ngModel)]="dname">
         <button (click)="querys()"> <fa-icon [icon]="'pencil-alt'"></fa-icon>查询</button>
 
+        <nz-input-group [nzSuffix]="suffixIconSearch"  class="esinput">
+            <input type="text" nz-input placeholder="input search text" [(ngModel)]="searchText">
+        </nz-input-group>
 
         <table class="table table-striped">
             <thead>
@@ -26,7 +29,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let driver of drivers ;trackBy: trackId">
+            <tr *ngFor="let driver of drivers | ScoresLevelPipe : searchText ;trackBy: trackId">
                 <td><a [routerLink]="['/driver', driver.id, 'view' ]">{{driver.id}}</a></td>
                 <td>{{driver.dname}}</td>
                 <td>{{driver.dsex}}</td>

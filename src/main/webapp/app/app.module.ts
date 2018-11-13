@@ -22,8 +22,9 @@ import * as moment from 'moment';
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
 import {LayoutModule} from "@angular/cdk/layout";
 import {JhipstersLoginModule} from "app/account/login/login.module";
-
+import {ScoresLevelPipe} from "app/entities/Pipe/scores-level.pipe";
 @NgModule({
+
     imports: [
         BrowserModule,
         JhipsetrsAppRoutingModule,
@@ -40,7 +41,9 @@ import {JhipstersLoginModule} from "app/account/login/login.module";
         MatButtonModule,
         MatSidenavModule,
         MatIconModule,
-        MatListModule
+        MatListModule,
+
+
     ],
     declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
     providers: [
@@ -64,6 +67,7 @@ import {JhipstersLoginModule} from "app/account/login/login.module";
         }
     ],
     bootstrap: [JhiMainComponent]
+
 })
 export class JhipsetrsAppModule {
     constructor(private dpConfig: NgbDatepickerConfig) {
