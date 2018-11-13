@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Principal } from '../../core/auth/principal.service';
-import {AuthServerProvider} from "app/core/auth/auth-jwt.service";
+import {AuthServerProvider} from "../../core/auth/auth-jwt.service";
 
 
 @Injectable({ providedIn: 'root' })

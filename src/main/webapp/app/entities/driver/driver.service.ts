@@ -12,7 +12,7 @@ type EntityArrayResponseType = HttpResponse<IDriver[]>;
 @Injectable({ providedIn: 'root' })
 export class DriverService {
     private resourceUrl = SERVER_API_URL + 'api/drivers';
-
+    private resourceurl= SERVER_API_URL + 'api';
     constructor(private http: HttpClient) {}
 
     create(driver: IDriver): Observable<EntityResponseType> {
@@ -34,5 +34,8 @@ export class DriverService {
 
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
+    }
+    vagues(dname:string){
+        return this.http.get('api/findByNameLike/'+dname);
     }
 }

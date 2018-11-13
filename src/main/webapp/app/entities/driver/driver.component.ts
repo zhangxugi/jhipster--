@@ -16,7 +16,7 @@ import { DriverService } from './driver.service';
 })
 export class DriverComponent implements OnInit, OnDestroy {
     currentAccount: any;
-    drivers: IDriver[];
+    drivers: any;
     error: any;
     success: any;
     eventSubscriber: Subscription;
@@ -29,7 +29,7 @@ export class DriverComponent implements OnInit, OnDestroy {
     predicate: any;
     previousPage: any;
     reverse: any;
-
+    dname :string;
     constructor(
         private driverService: DriverService,
         private parseLinks: JhiParseLinks,
@@ -89,6 +89,19 @@ export class DriverComponent implements OnInit, OnDestroy {
             }
         ]);
         this.loadAll();
+    }
+    querys(){
+        console.log(this.dname);
+        if (this.dname === undefined || this.dname === '') {
+            alert("错误");
+            //this.loadAll();
+        }else{
+            this.driverService.vagues(this.dname).subscribe(data =>{
+                alert(data);
+                this.drivers=data;
+            });
+        }
+
     }
 
     ngOnInit() {

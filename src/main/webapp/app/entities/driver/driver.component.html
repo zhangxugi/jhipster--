@@ -11,6 +11,11 @@
     <jhi-alert></jhi-alert>
     <br/>
     <div class="table-responsive" *ngIf="drivers">
+
+            <input type="text" nz-input placeholder="input search text" [(ngModel)]="dname">
+        <button (click)="querys()"> <fa-icon [icon]="'pencil-alt'"></fa-icon>查询</button>
+
+
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">

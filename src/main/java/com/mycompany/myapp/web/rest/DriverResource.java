@@ -2,6 +2,7 @@ package com.mycompany.myapp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.mycompany.myapp.domain.Driver;
+import com.mycompany.myapp.repository.DriverRepository;
 import com.mycompany.myapp.service.DriverService;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
@@ -9,6 +10,7 @@ import com.mycompany.myapp.web.rest.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
@@ -38,7 +40,8 @@ public class DriverResource {
     public DriverResource(DriverService driverService) {
         this.driverService = driverService;
     }
-
+@Autowired
+private DriverRepository driverRepository;
     /**
      * POST  /drivers : Create a new driver.
      *
@@ -122,5 +125,12 @@ public class DriverResource {
         log.debug("REST request to delete Driver : {}", id);
         driverService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+    }
+    //模糊查询
+    @GetMapping("/findByNameLike/{dname}")
+    public List<Driver> findByNameLike(@PathVariable String dname) {
+        System.out.println(dname+"dddd");
+        // 一定要加 "%"+参数名+"%"
+        return driverRepository.findByDnameLike("%"+dname+"%");
     }
 }
